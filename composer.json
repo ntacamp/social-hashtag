@@ -1,0 +1,13 @@
+{
+    "name": "ntacamp/social-hashtag",
+    "description": "library for collecting social data based on hashtags",
+    "authors": [
+        {
+            "name": "Arnas Petruškevičius",
+            "email": "arnas.p@estina.lt"
+        }
+    ],
+    "require": {
+      "j7mbo/twitter-api-php": "dev-master"
+    }
+}
