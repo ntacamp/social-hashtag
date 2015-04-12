@@ -2,30 +2,41 @@
 
 namespace NtaCamp\SocialHashtag;
 
+use NtaCamp\SocialHashtag\DataFormatter\DataFormatter;
+use TwitterAPIExchange;
+
 class TwitterFeed implements Feed
 {
     const URL = 'https://api.twitter.com/1.1/search/tweets.json';
     const METHOD = 'GET';
-    /**
-     * @var \TwitterAPIExchange
-     */
+
+    /** @var  TwitterApiExchange */
     private $client;
 
-    public static function create($settings)
-    {
-        return new self(new \TwitterAPIExchange($settings));
-    }
+    /** @var  DataFormatter */
+    private $formatter;
 
-    public function __construct($client)
+    public function __construct($client, $formatter)
     {
         $this->client = $client;
+        $this->formatter = $formatter;
     }
 
-    public function getByHash($hashtag, $options)
+    /**
+     * @param $hashtag
+     * @return array
+     * @throws \Exception
+     */
+    public function getByHash($hashtag)
     {
-        $this->client->setGetfield($hashtag);
+        $this->client->setGetfield('?q=#'.$hashtag);
         $this->client->buildOauth(self::URL, self::METHOD);
 
-        return $this->client->performRequest();
+        return $this->formatter->formatData($this->client->performRequest());
+    }
+
+    public function getName()
+    {
+        return 'twitter';
     }
 }
