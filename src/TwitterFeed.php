@@ -16,7 +16,11 @@ class TwitterFeed implements Feed
     /** @var  DataFormatter */
     private $formatter;
 
-    public function __construct($client, $formatter)
+    /**
+     * @param TwitterApiExchange $client
+     * @param DataFormatter $formatter
+     */
+    public function __construct(TwitterAPIExchange $client, DataFormatter $formatter)
     {
         $this->client = $client;
         $this->formatter = $formatter;
@@ -24,7 +28,7 @@ class TwitterFeed implements Feed
 
     /**
      * @param $hashtag
-     * @return array
+     * @return Post[]
      * @throws \Exception
      */
     public function getByHash($hashtag)
@@ -32,7 +36,9 @@ class TwitterFeed implements Feed
         $this->client->setGetfield('?q=#'.$hashtag);
         $this->client->buildOauth(self::URL, self::METHOD);
 
-        return $this->formatter->formatData($this->client->performRequest());
+        $response = json_decode($this->client->performRequest());
+
+        return $this->formatter->format($response);
     }
 
     public function getName()

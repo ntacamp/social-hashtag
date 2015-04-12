@@ -9,9 +9,8 @@ class TwitterDataFormatter implements DataFormatter
      * @param $data
      * @return Post[]
      */
-    public function formatData($data)
+    public function format($data)
     {
-        $data = json_decode($data);
         $result = [];
 
         foreach ($data->statuses as $status) {

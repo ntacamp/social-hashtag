@@ -17,16 +17,25 @@ class SocialHashtag
         $this->hashtag = $hashtag;
     }
 
+    /**
+     * @param Feed $feed
+     */
     public function addFeed(Feed $feed)
     {
         array_push($this->feeds, $feed);
     }
 
+    /**
+     * @return Feed[]
+     */
     public function getFeeds()
     {
         return $this->feeds;
     }
 
+    /**
+     * @return array
+     */
     public function getResults()
     {
         $results = [];

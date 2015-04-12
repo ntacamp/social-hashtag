@@ -9,5 +9,5 @@ interface DataFormatter
      * @param $data
      * @return Post[]
      */
-    public function formatData($data);
+    public function format($data);
 }
