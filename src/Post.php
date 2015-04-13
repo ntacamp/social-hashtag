@@ -15,7 +15,7 @@ class Post
     /** @var  String */
     private $profileImageUrl;
 
-    /** @var  String */
+    /** @var  \DateTime */
     private $date;
 
     /**
@@ -83,7 +83,7 @@ class Post
     }
 
     /**
-     * @return String
+     * @return \Datetime
      */
     public function getDate()
     {
@@ -91,7 +91,7 @@ class Post
     }
 
     /**
-     * @param String $date
+     * @param \Datetime $date
      */
     public function setDate($date)
     {

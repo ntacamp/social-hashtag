@@ -3,24 +3,23 @@
 namespace NtaCamp\SocialHashtag;
 
 use NtaCamp\SocialHashtag\DataFormatter\DataFormatter;
-use TwitterAPIExchange;
 
 class TwitterFeed implements Feed
 {
     const URL = 'https://api.twitter.com/1.1/search/tweets.json';
     const METHOD = 'GET';
 
-    /** @var  TwitterApiExchange */
+    /** @var  \TwitterApiExchange */
     private $client;
 
     /** @var  DataFormatter */
     private $formatter;
 
     /**
-     * @param TwitterApiExchange $client
+     * @param \TwitterApiExchange $client
      * @param DataFormatter $formatter
      */
-    public function __construct(TwitterAPIExchange $client, DataFormatter $formatter)
+    public function __construct(\TwitterAPIExchange $client, DataFormatter $formatter)
     {
         $this->client = $client;
         $this->formatter = $formatter;

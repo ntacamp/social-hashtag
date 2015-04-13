@@ -24,11 +24,12 @@
     </php>
 
     <testsuites>
-        <testsuite name="Unit">
-            <directory>./tests</directory>
-        </testsuite>
         <testsuite name="Integration">
             <directory>./tests/Integration</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory>./tests</directory>
+            <exclude>./tests/Integration</exclude>
         </testsuite>
     </testsuites>
 
