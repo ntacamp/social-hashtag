@@ -1,9 +1,9 @@
 <?php
 
-namespace NtaCamp\SocialHashtag\Tests;
+namespace NtaCamp\SocialHashtag\Tests\Feed;
 
 use NtaCamp\SocialHashtag\Post;
-use NtaCamp\SocialHashtag\TwitterFeed;
+use NtaCamp\SocialHashtag\Feed\TwitterFeed;
 
 class TwitterFeedTest extends \PHPUnit_Framework_TestCase
 {

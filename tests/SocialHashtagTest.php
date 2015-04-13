@@ -16,15 +16,15 @@ class SocialHashtagTest extends \PHPUnit_Framework_TestCase
 
     public function testFeedAddition()
     {
-        $feed = $this->getMock('NtaCamp\SocialHashtag\Feed');
+        $feed = $this->getMock('NtaCamp\SocialHashtag\Feed\Feed');
         $this->socialHashtag->addFeed($feed);
 
-        $this->assertInstanceOf('NtaCamp\SocialHashtag\Feed', current($this->socialHashtag->getFeeds()));
+        $this->assertInstanceOf('NtaCamp\SocialHashtag\Feed\Feed', current($this->socialHashtag->getFeeds()));
     }
 
     public function testGetResults()
     {
-        $feed = $this->getMock('NtaCamp\SocialHashtag\Feed');
+        $feed = $this->getMock('NtaCamp\SocialHashtag\Feed\Feed');
         $post = $this->getMock('NtaCamp\SocialHashtag\Post');
         $feed->expects($this->once())->method('getName')->will($this->returnValue('feed'));
         $feed->expects($this->once())->method('getByHash')->will($this->returnValue([$post]));

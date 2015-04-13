@@ -3,7 +3,7 @@ namespace NtaCamp\SocialHashtag\Tests\Integration;
 
 use NtaCamp\SocialHashtag\DataFormatter\TwitterDataFormatter;
 use NtaCamp\SocialHashtag\SocialHashtag;
-use NtaCamp\SocialHashtag\TwitterFeed;
+use NtaCamp\SocialHashtag\Feed\TwitterFeed;
 
 class TwitterHashtagsTest extends \PHPUnit_Framework_TestCase
 {

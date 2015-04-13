@@ -1,6 +1,6 @@
 <?php
 
-namespace NtaCamp\SocialHashtag;
+namespace NtaCamp\SocialHashtag\Feed;
 
 interface Feed
 {

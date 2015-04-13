@@ -1,6 +1,6 @@
 <?php
 
-namespace NtaCamp\SocialHashtag;
+namespace NtaCamp\SocialHashtag\Feed;
 
 use NtaCamp\SocialHashtag\DataFormatter\DataFormatter;
 

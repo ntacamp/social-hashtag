@@ -1,6 +1,8 @@
 <?php
 namespace NtaCamp\SocialHashtag;
 
+use NtaCamp\SocialHashtag\Feed\Feed;
+
 class SocialHashtag
 {
     /** @var  String */
