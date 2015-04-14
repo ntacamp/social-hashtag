@@ -46,6 +46,6 @@ class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testEmptyFormat()
     {
-        $this->assertNull($this->formatter->format(null));
+        $this->assertEmpty($this->formatter->format(null));
     }
 }

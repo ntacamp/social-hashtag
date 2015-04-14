@@ -10,14 +10,14 @@ class InstagramDataFormatter implements DataFormatter
 
     /**
      * @param $data
-     * @return Post[] | null
+     * @return Post[]
      */
     public function format($data)
     {
         $result = [];
 
         if (!$data) {
-            return null;
+            return $result;
         }
 
         /** @var Media $media */

@@ -33,7 +33,7 @@ class InstagramHashtagsTest extends \PHPUnit_Framework_TestCase
         $socialHashtag = $this->getSocialHashtag('igfdjg493t394234skvjxlvj32e234>');
         $results = $socialHashtag->getResults();
 
-        $this->assertNull($results['instagram']);
+        $this->assertEmpty($results['instagram']);
     }
 
     private function getSocialHashtag($tag)

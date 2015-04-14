@@ -3,6 +3,7 @@
 namespace NtaCamp\SocialHashtag\Feed;
 
 use NtaCamp\SocialHashtag\DataFormatter\DataFormatter;
+use NtaCamp\SocialHashtag\Post;
 
 class TwitterFeed implements Feed
 {

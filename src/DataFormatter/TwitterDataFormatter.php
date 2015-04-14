@@ -21,7 +21,8 @@ class TwitterDataFormatter implements DataFormatter
                 $post->setHashtags($status->entities->hashtags);
                 $post->setDate(new \DateTime($status->created_at));
                 $post->setProfileImageUrl($status->user->profile_image_url);
-                array_push($result, $post);
+
+                $result[] = $post;
             }
         }
 
