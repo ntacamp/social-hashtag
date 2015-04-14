@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-      "j7mbo/twitter-api-php": "dev-master"
+      "j7mbo/twitter-api-php": "dev-master",
+        "php-instagram-api/php-instagram-api": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.6"

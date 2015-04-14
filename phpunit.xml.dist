@@ -21,6 +21,7 @@
         <const name="TWITTER_CONSUMER_SECRET" value=""/>
         <const name="TWITTER_OAUTH_ACCESS_TOKEN" value=""/>
         <const name="TWITTER_OAUTH_ACCESS_TOKEN_SECRET" value=""/>
+        <const name="INSTAGRAM_CLIENT_ID" value=""/>
     </php>
 
     <testsuites>
