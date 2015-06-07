@@ -30,8 +30,10 @@ class InstagramDataFormatter implements DataFormatter
             $post->setDate(\DateTime::createFromFormat('U', $media->getCreatedTime()));
             if (isset($media->getData()->videos)) {
                 $post->setMedia($media->getStandardResVideo());
+                $post->getMedia()->type = 'video';
             } else {
                 $post->setMedia($media->getStandardResImage());
+                $post->getMedia()->type = 'image';
             }
 
             $result[] = $post;
