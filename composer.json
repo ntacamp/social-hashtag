@@ -1,6 +1,7 @@
 {
     "name": "ntacamp/social-hashtag",
     "description": "library for collecting social data based on hashtags",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Arnas Petruškevičius",
