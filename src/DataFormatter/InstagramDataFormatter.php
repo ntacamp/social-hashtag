@@ -28,6 +28,11 @@ class InstagramDataFormatter implements DataFormatter
             $post->setContent($media->getCaption()->getText());
             $post->setHashtags($media->getTags()->toArray());
             $post->setDate(\DateTime::createFromFormat('U', $media->getCreatedTime()));
+            if (isset($media->getData()->videos)) {
+                $post->setMedia($media->getStandardResVideo());
+            } else {
+                $post->setMedia($media->getStandardResImage());
+            }
 
             $result[] = $post;
         }

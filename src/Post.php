@@ -18,6 +18,9 @@ class Post
     /** @var  \DateTime */
     private $date;
 
+    /** @var string image or video url */
+    private $media;
+
     /**
      * @return String
      */
@@ -96,5 +99,21 @@ class Post
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * @param string $media
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
     }
 }
