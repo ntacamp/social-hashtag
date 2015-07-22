@@ -7,6 +7,7 @@ use Instagram\Collection\TagCollection;
 use Instagram\Comment;
 use Instagram\Media;
 use NtaCamp\SocialHashtag\DataFormatter\InstagramDataFormatter;
+use phpDocumentor\Reflection\DocBlock\Tag\SeeTag;
 
 class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -33,7 +34,9 @@ class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
         $data->user = $userData;
         $data->tags = new TagCollection($tagsData);
         $data->created_time = '1429032159'; // unix timestamp
-        $data->images =  (object)['standard_resolution' => 'standard res image'];
+        $data->images =  (object)['standard_resolution' => new \StdClass()];
+        $data->images->standard_resolution = new \StdClass();
+        $data->images->standard_resolution->url = 'url';
 
         $media = new Media($data);
 
@@ -43,7 +46,7 @@ class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('http://goo.gl/UQqqEU', current($results)->getProfileImageUrl());
         $this->assertSame('hey Nintendo fans ! #nintendo', current($results)->getContent());
         $this->assertSame('nintendo', current($results)->getHashtags()[0]);
-        $this->assertSame('standard res image', current($results)->getMedia());
+        $this->assertSame('url', current($results)->getMedia()->url);
         $this->assertInstanceOf('\DateTime', current($results)->getDate());
     }
 
