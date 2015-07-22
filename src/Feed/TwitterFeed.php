@@ -36,7 +36,7 @@ class TwitterFeed implements Feed
         $this->client->setGetfield('?q=#'.$hashtag);
         $this->client->buildOauth(self::URL, self::METHOD);
 
-        $response = json_decode($this->client->performRequest());
+        $response = json_decode($this->client->performRequest(true, array(CURLOPT_SSL_VERIFYPEER => false)));
 
         return $this->formatter->format($response);
     }
