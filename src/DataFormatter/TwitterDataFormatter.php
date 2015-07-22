@@ -15,7 +15,7 @@ class TwitterDataFormatter implements DataFormatter
 
         if (is_object($data) && property_exists($data, 'statuses')) {
             foreach ($data->statuses as $status) {
-                if ($status->user->name !== 'twitter' && strpos($status->text, "RT @") !== 0) {
+                if (strpos($status->source, 'twitter') && strpos($status->text, "RT @") !== 0) {
                     $post = new Post();
                     $post->setUsername($status->user->name);
                     $post->setContent($status->text);
