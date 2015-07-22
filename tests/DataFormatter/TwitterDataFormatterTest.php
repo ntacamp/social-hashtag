@@ -14,6 +14,8 @@ class TwitterDataFormatterTest extends \PHPUnit_Framework_TestCase
         $user = new \StdClass();
         $user->name = 'Homer J. Simpson';
         $user->profile_image_url = 'http://goo.gl/BLriQo';
+        $user->screen_name = 'homer';
+
 
         $entities = new \StdClass();
         $entities->hashtags = ['donuts', 'love'];
@@ -22,6 +24,7 @@ class TwitterDataFormatterTest extends \PHPUnit_Framework_TestCase
         $status->user = $user;
         $status->text = 'mmmm... #donuts #love';
         $status->created_at = 'Mon Apr 13 06:09:52 +0000 2015';
+        $status->id = 1;
         $status->entities = $entities;
 
         $data = new \StdClass();

@@ -5,6 +5,8 @@ use NtaCamp\SocialHashtag\Post;
 
 class TwitterDataFormatter implements DataFormatter
 {
+    const TWITTER_URL = 'https://twitter.com/';
+
     private $options = [
         'includeRetweets' => true
     ];
@@ -29,6 +31,8 @@ class TwitterDataFormatter implements DataFormatter
                 }
                 $post = new Post();
                 $post->setUsername($status->user->name);
+                $post->setUserUrl(self::TWITTER_URL.$status->user->screen_name);
+                $post->setUrl(self::TWITTER_URL.$status->user->screen_name.'/status/'.$status->id);
                 $post->setContent($status->text);
                 $post->setHashtags($status->entities->hashtags);
                 $post->setDate(new \DateTime($status->created_at));
@@ -37,7 +41,6 @@ class TwitterDataFormatter implements DataFormatter
                 $result[] = $post;
             }
         }
-
 
         return $result;
     }

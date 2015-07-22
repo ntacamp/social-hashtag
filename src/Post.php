@@ -7,6 +7,9 @@ class Post
     private $username;
 
     /** @var  String */
+    private $userUrl;
+
+    /** @var  String */
     private $content;
 
     /** @var  Array */
@@ -20,6 +23,9 @@ class Post
 
     /** @var string image or video url */
     private $media;
+
+    /** @var  String */
+    private $url;
 
     /**
      * @return String
@@ -115,5 +121,37 @@ class Post
     public function setMedia($media)
     {
         $this->media = $media;
+    }
+
+    /**
+     * @return String
+     */
+    public function getUserUrl()
+    {
+        return $this->userUrl;
+    }
+
+    /**
+     * @param String $userUrl
+     */
+    public function setUserUrl($userUrl)
+    {
+        $this->userUrl = $userUrl;
+    }
+
+    /**
+     * @return String
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param String $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
     }
 }

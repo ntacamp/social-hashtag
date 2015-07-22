@@ -18,7 +18,6 @@ class TwitterHashtagsTest extends \PHPUnit_Framework_TestCase
     public function testEmptyResults()
     {
         $results = $this->getSocialHashtag('53dadfe8aaceaa795e8757bdc77b1ecb')->getResults();
-        var_dump($results);
     }
 
     public function getSocialHashtag($tag)

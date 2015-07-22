@@ -25,13 +25,15 @@ class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
 
         $userData = (object) [
             'username' => 'Mario',
-            'profile_picture' => 'http://goo.gl/UQqqEU'
+            'profile_picture' => 'http://goo.gl/UQqqEU',
+            'screen_name' => 'mario'
         ];
         $captionData = (object) ['text' => 'hey Nintendo fans ! #nintendo'];
         $tagsData = ['nintendo'];
 
         $data->caption = new Comment($captionData);
         $data->user = $userData;
+        $data->link = 'http://link';
         $data->tags = new TagCollection($tagsData);
         $data->created_time = '1429032159'; // unix timestamp
         $data->images =  (object)['standard_resolution' => new \StdClass()];
@@ -47,6 +49,7 @@ class InstagramDataFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('hey Nintendo fans ! #nintendo', current($results)->getContent());
         $this->assertSame('nintendo', current($results)->getHashtags()[0]);
         $this->assertSame('url', current($results)->getMedia()->url);
+        $this->assertSame('http://link', current($results)->getUrl());
         $this->assertInstanceOf('\DateTime', current($results)->getDate());
     }
 
