@@ -15,14 +15,16 @@ class TwitterDataFormatter implements DataFormatter
 
         if (is_object($data) && property_exists($data, 'statuses')) {
             foreach ($data->statuses as $status) {
-                $post = new Post();
-                $post->setUsername($status->user->name);
-                $post->setContent($status->text);
-                $post->setHashtags($status->entities->hashtags);
-                $post->setDate(new \DateTime($status->created_at));
-                $post->setProfileImageUrl($status->user->profile_image_url);
+                if ($status->user->name !== 'twitter' && strpos($status->text, "RT @") !== 0) {
+                    $post = new Post();
+                    $post->setUsername($status->user->name);
+                    $post->setContent($status->text);
+                    $post->setHashtags($status->entities->hashtags);
+                    $post->setDate(new \DateTime($status->created_at));
+                    $post->setProfileImageUrl($status->user->profile_image_url);
 
-                $result[] = $post;
+                    $result[] = $post;
+                }
             }
         }
 
